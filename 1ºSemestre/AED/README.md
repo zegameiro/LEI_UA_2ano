@@ -1,5 +1,7 @@
 #  Algoritmos e Estruturas de Dados 
+
 ## Conteúdos
+
 - Introdução à linguagem de programação C
     - Tipos de dados
     - Declaração e definição de variáveis
@@ -53,8 +55,17 @@
 - Alguns tópicos sobre geometria computacional
     - Steiner trees
     - Point location (grid, quad-tree, oct-tree)
-    - Convex hull, Delaunay triangulation e Voronoi diagram<br />
+    - Convex hull, Delaunay triangulation e Voronoi diagram
+ 
+## Informações
 
 Neste repositório encontram-se os slides das aulas teóricas, os guiões e o código disponibilizado para as aulas práticas (poderá estar incompleto), os guiões e o código dos 2 trabalhos práticos proposto (poderá estar incompleto) e enunciados de exames.
 
+## Trabalhos Práticos
 
+Ambos os Trabalhos Práticos foram realizados em conjunto com:
+- [Diogo Falcão](https://github.com/falcaodiogo)
+
+Nota Trabalho Prático 1: 16.5
+<br />
+Nota Trabalho Prático 2: 12
