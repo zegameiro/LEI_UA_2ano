@@ -1,0 +1,8 @@
+
+Tempo para calcular as distâncias de Jaccard = 26.1026
+Tempo para calcular a Similaridade = 0.0141
+Número de pares com distâncias inferiores a 0.4 = 4
+Utilizadores com distância similar:
+  328 788 0.3270
+  408 898 0.1613
+  489 587 0.3701

@@ -1,0 +1,11 @@
+sen^2(x) + cos^2(x) = 1
+
+sen^2(x) = 1/2 ( 1 - cos(2x) )
+
+cos^2(x) = 1/2 ( 1 + cos(2x) )
+
+sen(2x) = 2 sen(x) cos(x)
+
+sen(a + b) = sen(a)*cos(b) + sen(b)*cos(a)
+
+cos(a + b) = cos(a)*cos(b) - sen(a)*sen(b)

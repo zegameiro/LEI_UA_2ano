@@ -1,0 +1,11 @@
+%% Exercício 2 Guião 3
+
+f0 = 1;
+Ta = 0.01;
+Np = 6;
+ak = zeros(1,100);
+bk = zeros(1,100);
+
+fourier_coef(Ta,f0,Np,ak,bk)
+
+square(t,x)
