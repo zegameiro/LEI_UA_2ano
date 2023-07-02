@@ -1,13 +1,13 @@
 # AED_Project2
+
 ## Segundo Trabalho Prático da Cadeira de Algoritmos e Estruturas de Dados
 
 Trabalho realizado por:
 - Diogo Falcão (Nºmec 108712)
 - José Gameiro (Nºmec 108840)
 
-Nota: 12
-
 ## Instruções de compilação e execução
+
 Dentro da pasta A02, compilar com o comando:
 ```
 make solution_word_ladder

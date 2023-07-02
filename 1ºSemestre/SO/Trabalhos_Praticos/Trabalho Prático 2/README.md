@@ -5,6 +5,7 @@ Projeto realizado por:
 - José Gameiro (Nºmec 108840)
 
 ## Instruções de compilação e execução
+
 Para compilar o projeto basta ir à pasta src e executar o comando:
 ```
 make
