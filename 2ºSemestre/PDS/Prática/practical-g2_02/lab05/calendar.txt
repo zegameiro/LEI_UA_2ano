@@ -1,0 +1,104 @@
+Ex4 - Diogo Falcão e José Gameiro
+
+Padrões Criacionais
+
+Abstract Factory: Cria uma família de objetos relacionados sem especificar suas classes concretas.
+Builder: Separa a construção de um objeto complexo de sua representação, permitindo diferentes formas de construção.
+Factory Method: Define uma interface para criar objetos em uma superclasse, delegando a responsabilidade da criação para as subclasses.
+Prototype: Cria novos objetos duplicando protótipos existentes, permitindo a criação de novos objetos sem conhecimento detalhado de suas classes.
+Singleton: Garante a existência de apenas uma instância de uma classe e fornece um ponto de acesso global a ela.
+
+
+
+======= FCATORY METHOD ============
+São usadas várias vezes o padrão Factory Method na criação de calendários através do método createCalendar
+(ex na linha 968:         Calendar cal = createCalendar(TimeZone.getDefaultRef(), Locale.getDefault(Locale.Category.FORMAT));)
+Ex:
+
+public static Calendar getInstance()
+    {
+        Calendar cal = createCalendar(TimeZone.getDefaultRef(), Locale.getDefault(Locale.Category.FORMAT));
+        cal.sharedZone = true;
+        return cal;
+    }
+
+--
+
+public static Calendar getInstance(Locale aLocale)
+    {
+        Calendar cal = createCalendar(TimeZone.getDefaultRef(), aLocale);
+        cal.sharedZone = true;
+        return cal;
+    }
+
+
+
+======= BUILDER ============
+Também é usado várias vezes o padrão Builder. Ex: public final void set(int year, int month, int date, int hourOfDay, int minute, int second)
+Isto permite criar objetos complexos, não incluindo os detalhes dos contrutores.
+
+Ex:
+public final void set(int year, int month, int date)
+    {
+        set(YEAR, year);
+        set(MONTH, month);
+        set(DATE, date);
+    }
+
+--
+
+public final void set(int year, int month, int date, int hourOfDay, int minute,
+                          int second)
+    {
+        set(YEAR, year);
+        set(MONTH, month);
+        set(DATE, date);
+        set(HOUR_OF_DAY, hourOfDay);
+        set(MINUTE, minute);
+        set(SECOND, second);
+    }
+
+
+======= SINGLETON ============
+É usado o padrão Singleton para colonar o objeto "calendário", usando os métodos "clone()" e "super.clone()" para numa primeira parte criar 
+uma cópia de um obejto e numa segunda, criar uma cópia mais detalhada deste.
+Ex:
+public TimeZone getTimeZone()
+    {
+        // If the TimeZone object is shared by other Calendar instances, then
+        // create a clone.
+        if (sharedZone) {
+            zone = (TimeZone) zone.clone();
+            sharedZone = false;
+        }
+        return zone;
+    }
+
+    --
+
+    Calendar work = (Calendar)this.clone();
+        work.setLenient(true);
+
+    --
+
+    public Object clone()
+    {
+        try {
+            Calendar other = (Calendar) super.clone();
+
+            other.fields = new int[FIELD_COUNT];
+            other.isSet = new boolean[FIELD_COUNT];
+            other.stamp = new int[FIELD_COUNT];
+            for (int i = 0; i < FIELD_COUNT; i++) {
+                other.fields[i] = fields[i];
+                other.stamp[i] = stamp[i];
+                other.isSet[i] = isSet[i];
+            }
+            other.zone = (TimeZone) zone.clone();
+            return other;
+        }
+        catch (CloneNotSupportedException e) {
+            // this shouldn't happen, since we are Cloneable
+            throw new InternalError();
+        }
+    }

@@ -1,0 +1,22 @@
+H
+I lab03/Ex02/flight1.txt
+I lab03/Ex02/flight1.txt
+M TP1920
+M TP1930
+I lab03/Ex02/flight2.txt
+M TP1930
+C TP1920:5
+M TP1920
+F new 3x2 5x4
+R new T 3
+M new
+F new2 5x4
+R new E 3
+R new2 T 2
+R new2 T 7
+R new2 T 11
+M new2
+R new2 T 2
+M new2
+X
+Q

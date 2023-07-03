@@ -1,0 +1,5 @@
+define automaton { 
+    linecolor:red
+    color:green;
+    label: ABOVE   
+}

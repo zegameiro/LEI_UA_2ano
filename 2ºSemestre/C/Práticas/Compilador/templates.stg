@@ -1,0 +1,38 @@
+program(variables, instructions) ::=<<
+class Program {
+    public static void main(String[] args) {
+        <variables>
+
+        <instructions>
+    }
+}
+
+>>
+
+var_declaration(name)::=<<
+Fraction <name>;
+
+>>
+
+print_expr(expr) ::=<<
+System.out.println(expr);
+
+>>
+
+var_set(name,expr) ::=<<
+<name> = <expr>;
+
+>>
+
+
+div(a,b) ::= "<a>.divideFraction(<b>)"
+mul(a,b) ::= "<a>.multFraction(<b>)"
+sub(a,b) ::= "<a>.subFraction(<b>)"
+sum(a,b) ::= "<a>.sumFraction(<b>)"
+power(a,b) ::= "<a>.expFraction(<b>)"
+reduce(a) ::= "<a>.reduce()"
+minus(a) ::= "<a>.minus()"
+literal(n,d) ::= "(new Fraction(<n>,<d>))"
+variable(name) ::= "<name>"
+
+

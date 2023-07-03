@@ -1,0 +1,55 @@
+/*
+ * this file shows how you can apply styles to automatons
+ */
+
+alphabet { 'a', 'b', 'c' }
+
+/*
+* import styles
+* this styles are then applied to a viewport 
+*/
+import styles
+
+DFA a2 <<<
+
+    state A, B;
+    A [initial = true];  // state A as the initial one
+    B [accepting = true];  // state B as an accepting one
+
+    transition 
+        A -> 'a','b' -> B,
+        A -> 'c' -> A,
+        B -> 'c' -> A,
+        B -> 'a','b' -> B;
+>>>
+
+view v2 of a2 <<<
+    place A at (2,1), B at (5,1);
+    point p1;
+    p1 = (B);
+    point x1 = (200:0.6);
+    p1 = p1 + x1;
+    point p2 = (A) + (-20:0.6);
+    point pm = (p1+p2)/2 + (0,0.2);
+    <B,A> as p1 -- pm -- p2;
+    place <B,A>#label [align = below] at pm;
+>>>
+animation m2 <<<
+    viewport vp2 for v2 at (10,10) -- ++(500,300);
+    on vp2 <<<
+        show A;
+        pause;
+        show <A,A>;
+        pause;
+        show B;
+        show <A,B>;
+        pause;
+        show <B,B>;
+        pause;
+        show <B,A>;
+        pause;
+    >>>
+>>>
+
+play m2;
+

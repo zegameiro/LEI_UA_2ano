@@ -1,0 +1,29 @@
+================= JGALO ========================
+
+BONS
+
+não tem classes
+bem orientado
+bem identado
+conveções corretas a variáveis
+
+
+MAUS
+
+muitos poucos comentários
+não há readme
+
+
+================= PLANES =======================
+
+BONS
+
+
+MAUS
+
+programa no geral encontra-se ainda na fase inicial de desenvolvimento:
+    nomenclatura de classes incorreta (main é chamada de Reservation)
+    programa não compila com "javac"
+    não há readme
+    mau formatação de Strings
+    etc

@@ -1,0 +1,31 @@
+------------------------ Introdução ------------------------ 
+O padrão Template Method pertence ao conjunto de padrões comportamentais.
+Este define uma estrutura básica de um algoritmo, permitindo que subclasses
+implementem ou substituam partes específicas do algoritmo sem alterar a sua estrutura geral.
+
+------------------------ Classe java.io.Reader ------------------------
+A classe java.io.Reader é uma classe abstrata que serve como base para as classes de leitura de caracteres.
+Esta define um conjunto de métodos abstratos, como o read() e o close(), que devem de ser implementados pelas
+subclasses concretas para ler caracteres de diferentes fontes, como arquivos ou fluxos.
+
+Neste caso, o padrão Template Method é utilizado para definir a estrutura geral de como a leitura de caracteres
+deve de ser feita, enquanto que as subclasses concretas implementam os detalhes específicos para llidar com diferentes
+tipos de fontes de dados.
+
+------------------------ Classe java.io.Writer ------------------------
+A classe java.io.Writer segue um padrão semelhante ao java.io.Reader. Esta é uma classe abstrata
+que define a estrutura para a escrita de caracteres. Alguns métodos abstratos desta classe, como o write() e o flush(),
+são declarados nessa classe e devem de ser implementados nas subclasses concretas para lidar com diferentes tipos de escrita.
+
+O padrão Template Method é aplicado aqui para fornecer uma estrutura geral para a escrita de caracteres, permitindo
+que as subclasses concretas forneçam a implementação específica necessária para cada destino de saída.
+
+------------------------ Classe java.util.AbstractMap ------------------------
+A classe java.util.AbstractMap é uma classe abstrata que implementa parcialmente a interface Map do Java.
+Esta fornece uma implementação básica para vários métodos da interface Map, como 
+size(), isEmpty(), containsKey(), containsValue(), get(), put(), entre muitoss outros.
+
+O padrão Template Method é utilizado neste caso para definir uma estrutura geral oara as operações básicas de um map,
+permitindo que as subclasses concretas implementem apenas os métodos específicos para armazenar e recuperar pares do tipo chave-valor,
+de acordo com a sua lógica interna. Isto permite que as subclasses estendam a funcionalidade da classe abstrata enquanto reutilizam
+a implementação padrão dos métodos mais comuns.

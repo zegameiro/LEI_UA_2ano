@@ -1,0 +1,24 @@
+================= JGALO ========================
+
+BONS
+
+Comentarios com as devidas explicações
+Código correto mas não muito compacto
+
+
+MAUS
+
+Readme incorreto: forma de compilar encontra-se com ficheiros não existentes
+
+
+================= PLANES =======================
+
+BONS
+
+Código muito bom e compacto.
+Todas as opções funcionam
+
+MAUS
+
+Readme incorreto: forma de compilar encontra-se com ficheiros não existentes
+Algumas mensagens de erro podiam estar melhoradas como uma mensagem de diretorio errado do ficheiro

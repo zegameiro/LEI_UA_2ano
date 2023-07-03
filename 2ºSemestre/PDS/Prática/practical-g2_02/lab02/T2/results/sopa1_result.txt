@@ -1,0 +1,25 @@
+S T A C K . . . . . . . 
+. . . . . G . T E S T . 
+. . . . . N . . . . . . 
+. . . . . I . . . . . . 
+S E N I L M . . . . . . 
+. . . . . M . . . . C . 
+. . . . . A S . . . I . 
+. . . . . R . D . . V . 
+J . . . . G . . R . I . 
+A . . . . O . . . O L . 
+V . . . . R . . . . W . 
+A . . . . P . . . . . . 
+
+
+WORD                 SIZE  (X ,Y ) DIRECTION
+-----------------------------------------------------
+
+programming          11    (6 ,12) UP
+java                 4     (1 ,9 ) DOWN
+words                5     (11,11) UP_LEFT
+lines                5     (5 ,5 ) LEFT
+civil                5     (11,6 ) DOWN
+test                 4     (8 ,2 ) RIGHT
+stack                5     (1 ,1 ) RIGHT
+

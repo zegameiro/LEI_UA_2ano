@@ -1,0 +1,100 @@
+module(stat) ::= <<
+from advClasses import *
+import Interpreter
+from numpy import *
+from math import *
+styles=False
+string=""
+def main():
+    <stats(stat)>
+
+if __name__ == "__main__":
+    main()
+    
+>>
+
+stats(stat) ::= <<
+<if(stat)><stat; separator="\n"><endif>
+>>  
+
+assign(var,value) ::= "<var> = <value>"
+
+binaryOperation(var,e1,op,e2) ::= "<assign(var,[e1,\" \",op,\" \",e2])>"
+
+unaryOperation(var,op,e1) ::= "<assign(var,[op,\" \",e2])>"
+
+point(x,y) ::= "array([<x>,<y>])"
+
+array(elem) ::= <<
+[<if(elem)><elem; separator=","><endif>]
+>>
+
+map(elem,key) ::= <<
+{<if(elem)><mapElem(elem,key); separator=","><endif>}
+>>
+mapElem(elem,key) ::= "<elem> : <key>"
+
+state(label,accepting,initial) ::= "State('<label>'<if(accepting)>,accepting=<accepting><endif><if(initial)>,initial=<initial><endif>)"
+
+transition(label,stateStart,stateEnd) ::= <<Transition('<label; separator=",">',<stateStart>,<stateEnd>)>>
+
+automaton(name,state,transition) ::= "Automaton('<name>',<array(state)>,<array(transition)>)"
+
+view(name,automaton) ::= "View('<name>',<automaton>)"
+
+viewPort(view,cornerBottom,cornerTop) ::= "ViewPort(<view>,<cornerBottom>,<cornerTop>,styles,string)"
+
+viewportInstructions(name,instruction) ::=<<def <name>(view):
+    <stats(instruction)>
+>>
+
+animation(viewport) ::= "Animation(<array(viewport)>)"
+
+grid(name,widthheigth) ::= "Grid(<name>,<widthheigth>)"
+
+play(animation) ::= "<animation>.play()"
+
+setP(var,prop,value) ::= <<<var>.set<prop>(<value; separator=",">)>>
+
+get(var,prop,value) ::= <<<var>.get<prop>(<value; separator=",">)>>
+
+add(var,prop,value) ::= <<<var>.add<prop>(<value; separator=",">)>>
+
+read(msg) ::= "input(<msg>)"
+
+show(element) ::= <<view.show(<element; separator=",">)>>
+
+pause() ::= "view.pause()"
+
+forIn(var,list,stat) ::= <<
+for <var> in <list>:
+    <stats(stat)>
+>>
+
+while(expr,stat) ::=<<
+while <expr>:
+    <stats(stat)>
+>>
+
+if(expr,stat)::=<<
+if <expr>:
+    <stats(stat)>
+>>
+
+else(stat)::=<<
+else:
+    <stats(stat)>
+>>
+
+importS(file) ::=<<
+string=Interpreter.Interpreter("<file>")
+if string !="error":
+    styles=True
+else:
+    styles=False
+>>
+
+path(loopVar)::=<<
+if not view.update(<loopVar>):
+    break
+>>

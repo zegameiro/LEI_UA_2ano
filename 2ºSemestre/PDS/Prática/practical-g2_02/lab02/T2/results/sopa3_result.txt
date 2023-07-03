@@ -1,0 +1,131 @@
+N . . . N O . . . . . . . . . . . . . E . . . C . . . . . . . . . . . . . . D N 
+. O . T H O R E . . . . . . T . . . . N . . . A C . . . L A T R O P . . . . E E 
+N . I C R E T . T . . . . . . L . . . I . . S V O . . . . . . . . . . . . . S T 
+. A R T T E . C . I . . . . . . E . . V . . U E L O M S . . . . . . . . . . E L 
+. O I A A . A . H . M . . . . . . M . A E . R R U . . . . . . . . . . . . . R O 
+T . R D . R . S . . . F A R M I N G S R M . V N M . . . . . . . . . . . . . T M 
+. C . . R . O . U . . . . B . P . . . . E . I O N . . . . . . . . . . . . . . . 
+. . . . M A . L . R . . . . O O . . . . R . V U . . . . R . . . S S E R G O R P 
+. . . D . A U . P . E . . . . H . . . . A . A S . . . . . E . . E C A N R U F . 
+. . I . . . S G . X . . . . . . . . . . L . K . N . . . . . B N . . . E P . . . 
+P O T I O N . O M . E . . . . . . . . . D E . E V A L U E . O M . . N . R . . . 
+V . . R . . . . N E N O M M U S . . . . L . T . . . . F . I . . A N . . E . . . 
+. . . E . . . . . . T I N O C A E B . E . H . . . . E . T . . . A H C . C . . . 
+. . . D . . . . . . S S . . . . . . T . E . . . . R . A . . . B . R C . I . . . 
+. . M L E . . . . C . E Y . . . . O . R . . . . A . T . . . . . E . L . O . . . 
+. . . E T . . B E . . . N S . . N . . . . . . L . R D . . . . E . A . . U . . . 
+. . . . I . A L . . . . . C O . . . . . . . . . O . T U . . P . N . . . S . . . 
+M O B . M L L . . . . . . . H C . . . . . . . P . . N . R . . D . . . T . . . . 
+. . . . S A . . . . . . . . . A E . . . . . S . L . E E . A S . . . E . . . . . 
+D . . . N E . . . . . . . . P . N . . . . N . . I . M . L C B . . W . . . . . S 
+O . . E . T F . . . . . . . . A . T . . A . . . V F E . A E . L . . . . . . U . 
+M . O . . . I F . . . . . . . . S . E R . . . . N . V P . . C . E . . . . L . . 
+E U . . . . . M E V . C . M . . . S T D . . . . A . E . . . . T . . A . P . C . 
+S . . . . . . . I C . . A . A . . . I . . . . . . . I . . . . R R D . R . H . . 
+T . . . . . . . . L T . . U . T . . . V . . . . . . H . . . E . V I U . I . . . 
+I . . . . . . . . . . . . . L . E . . . E . . . . . C . . T . E . S C S . . . . 
+C . . . . . . . C . . . . . . D P R . . . . . . . . A . S . N . . . E I . . . . 
+A . . . . F O R T R E S S . . . R . I . . . . . . . . N . T . . . L . . T . . . 
+T . . . . . . . Y C E . . . . . E O . A . . . . . . O . U U N O M . . . . Y . . 
+E . . . . . . A N P . A . . . . Y . N . L . . . . M . R . . . . . . . . . . . . 
+. . . . . . L E R L . . T . . . . E D O M . . . . . E . . . . . C . . . . . . . 
+. . . . . S I E E . A . . I . . . . . . . . . . . . . . . . . I . . . . . . . . 
+. . . . . R D D . . . R . . V . . . . . . . . . . . . . . . R . . . . . . . . . 
+. . . . E A A . . . . . E . . E . . . . . . . . . . . . . C . . . . . . . . . . 
+. . . P T R . . . . . . . N . S A P L I N G . . . . . . U . . . . . . . . . . . 
+. . X O T . . . . . . . . . I . . . . . . . . . . . . I . . . . . . . . . . . . 
+. E R . . . . . . . . . . . . M . . . . . . . . . . T . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. E T A R E N E G E R . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+
+
+WORD                 SIZE  (X ,Y ) DIRECTION
+-----------------------------------------------------
+
+achievement          11    (27,27) UP
+adventure            9     (35,23) DOWN_LEFT
+anvil                5     (25,23) UP
+banner               6     (32,14) UP_RIGHT
+beacon               6     (18,13) LEFT
+cauldron             8     (12,23) DOWN_RIGHT
+cavernous            9     (24,1 ) DOWN
+chamber              7     (35,14) UP_LEFT
+chisel               6     (39,23) DOWN_LEFT
+circuit              7     (33,31) DOWN_LEFT
+column               6     (25,2 ) DOWN
+crater               6     (2 ,7 ) UP_RIGHT
+creative             8     (9 ,27) DOWN_RIGHT
+creep                5     (35,13) DOWN_LEFT
+desert               6     (39,1 ) DOWN
+domesticate          11    (1 ,20) DOWN
+dungeon              7     (15,13) UP
+durable              7     (27,16) DOWN_RIGHT
+ecosystem            9     (17,19) UP_LEFT
+effect               6     (6 ,20) DOWN_RIGHT
+elder                5     (4 ,16) UP
+electricity          11    (28,19) DOWN_RIGHT
+emerald              7     (21,5 ) DOWN
+enchanted            9     (12,15) DOWN_RIGHT
+experience           10    (2 ,37) UP_RIGHT
+exploration          11    (11,11) UP_LEFT
+explore              7     (25,6 ) LEFT
+farming              7     (12,6 ) RIGHT
+feral                5     (28,12) DOWN_LEFT
+forge                5     (26,21) UP_LEFT
+fortress             8     (6 ,28) RIGHT
+furnace              7     (39,9 ) LEFT
+glitch               6     (14,6 ) UP
+guardian             8     (8 ,10) UP_LEFT
+hopper               6     (16,9 ) UP
+hostile              7     (18,6 ) DOWN
+landscape            9     (35,15) DOWN_LEFT
+limit                5     (10,25) UP_LEFT
+magma                5     (3 ,15) UP_RIGHT
+mason                5     (5 ,8 ) DOWN_RIGHT
+material             8     (14,23) DOWN_RIGHT
+mineral              7     (16,37) UP_LEFT
+miscellaneous        13    (13,12) DOWN_LEFT
+mite                 4     (11,5 ) UP_LEFT
+mob                  3     (1 ,18) RIGHT
+mode                 4     (21,31) LEFT
+molten               6     (40,6 ) UP
+monster              7     (26,30) UP_RIGHT
+monument             8     (33,29) LEFT
+nether               6     (25,10) DOWN_LEFT
+notch                5     (5 ,1 ) DOWN_RIGHT
+obsidian             8     (15,8 ) UP_LEFT
+ore                  3     (6 ,1 ) DOWN
+passive              7     (15,20) DOWN_RIGHT
+portal               6     (34,2 ) LEFT
+potion               6     (1 ,11) RIGHT
+precious             8     (37,10) DOWN
+predator             8     (10,30) DOWN_LEFT
+prey                 4     (17,27) DOWN
+progress             8     (40,8 ) LEFT
+ravine               6     (20,6 ) UP
+regenerate           10    (11,40) LEFT
+region               6     (17,13) UP
+sapling              7     (16,35) RIGHT
+shaft                5     (1 ,24) DOWN
+shear                5     (25,7 ) RIGHT
+skeleton             8     (24,9 ) DOWN_LEFT
+slab                 4     (5 ,19) UP_RIGHT
+slay                 4     (6 ,32) UP_RIGHT
+smelt                5     (19,6 ) UP_LEFT
+smite                5     (5 ,19) UP
+smooth               6     (28,4 ) LEFT
+stew                 4     (37,17) DOWN_LEFT
+stronghold           10    (5 ,19) DOWN_RIGHT
+summon               6     (16,12) LEFT
+surplus              7     (34,26) UP_RIGHT
+survival             8     (23,3 ) DOWN
+tame                 4     (19,28) UP_LEFT
+torch                5     (1 ,6 ) UP_RIGHT
+trade                5     (5 ,36) UP_RIGHT
+transportation       14    (19,23) UP_RIGHT
+treasure             8     (4 ,2 ) DOWN_RIGHT
+value                5     (25,11) RIGHT
+vegetation           10    (10,23) LEFT
+void                 4     (1 ,12) UP_RIGHT
+
