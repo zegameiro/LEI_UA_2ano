@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+service Chat {
+	rpc enviar (Mensagem) returns (Mensagem) {}
+}
+
+message Mensagem {
+	string nickname = 1;
+    string texto = 2;
+}

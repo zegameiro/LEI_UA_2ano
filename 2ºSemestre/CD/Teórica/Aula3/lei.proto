@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+service Cantina {
+	rpc Refeicao (Menu) returns (Prato) {}
+}
+
+message Menu {
+	string nome = 1;
+}
+
+message Prato {
+	optional string sopa = 1;
+	string prato = 2;
+	optional string sobremesa = 3;
+}
