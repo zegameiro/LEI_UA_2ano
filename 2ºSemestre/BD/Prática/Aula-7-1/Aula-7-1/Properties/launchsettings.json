@@ -1,0 +1,10 @@
+﻿{
+    "profiles": {
+      "Aula-7-1 (Package)": {
+        "commandName": "MsixPackage"
+      },
+      "Aula-7-1 (Unpackaged)": {
+        "commandName": "Project"
+      }
+    }
+}

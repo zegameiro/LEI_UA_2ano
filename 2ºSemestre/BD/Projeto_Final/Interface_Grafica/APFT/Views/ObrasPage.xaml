@@ -1,0 +1,164 @@
+﻿<Page
+    x:Class="APFT.Views.ObrasPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:entities="using:APFT.Entities"
+    mc:Ignorable="d">
+
+    <Grid x:Name="ContentArea">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <Grid Grid.Row="0" ColumnSpacing="8" Margin="0,10,0,24">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <!-- Header Text -->
+            <TextBlock Grid.Column="0"
+                       x:Uid="/Constructions/Header"
+                       Style="{ThemeResource TitleTextBlockStyle}" />
+
+            <!-- Filter button -->
+            <Button Grid.Column="1"
+                    x:Name="FilterButton"
+                    VerticalAlignment="Center">
+                <Viewbox Height="16" Width="16">
+                    <FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xE71C;"/>
+                </Viewbox>
+                <ToolTipService.ToolTip>
+                    <ToolTip x:Uid="/Constructions/FilterButton"/>
+                </ToolTipService.ToolTip>
+
+                <Button.Flyout>
+                    <Flyout ShouldConstrainToRootBounds="False">
+                        <StackPanel Spacing="16">
+                            <CalendarDatePicker x:Name="StartCalendarDatePicker"
+                                                x:Uid="/Constructions/StartCalendarDatePicker"
+                                                Width="200"
+                                                DateChanged="StartCalendarDatePicker_OnDateChanged" />
+
+                            <CalendarDatePicker x:Name="EndCalendarDatePicker"
+                                                x:Uid="/Constructions/EndCalendarDatePicker"
+                                                Width="200"
+                                                DateChanged="EndCalendarDatePicker_OnDateChanged" />
+
+                            <Button x:Uid="/Constructions/ClearFilterButton" x:Name="ClearFilterButton" Click="ClearFilterButton_OnClick" />
+                        </StackPanel>
+                    </Flyout>
+                </Button.Flyout>
+            </Button>
+
+            <!-- Add button -->
+            <Button Grid.Column="2"
+                    x:Name="AddButton"
+                    Style="{StaticResource AccentButtonStyle}"
+                    VerticalAlignment="Center">
+                <Viewbox Height="16" Width="16">
+                    <FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xE710;"/>
+                </Viewbox>
+                <ToolTipService.ToolTip>
+                    <ToolTip x:Uid="/Constructions/AddButton"/>
+                </ToolTipService.ToolTip>
+
+                <!-- TODO: Adapt this to constructions -->
+                <Button.Flyout>
+                    <Flyout ShouldConstrainToRootBounds="False">
+                        <StackPanel Spacing="16" Width="300">
+                            <TextBox x:Name="IdTextBox" x:Uid="/Constructions/IdTextBox"/>
+                            <TextBox x:Name="LocationTextBox" x:Uid="/Constructions/LocationTextBox"/>
+
+                            <CalendarDatePicker x:Name="StartDatePicker"
+                                                x:Uid="/Constructions/StartCalendarDatePicker"
+                                                Width="300" />
+
+                            <TextBox x:Name="CustomerNifTextBox" x:Uid="/Constructions/CustomerNifTextBox"/>
+
+                            <Button x:Uid="/Constructions/AddButtonFlyout"
+                                    Style="{StaticResource AccentButtonStyle}"
+                                    Click="AddButton_OnClick" />
+                        </StackPanel>
+                    </Flyout>
+                </Button.Flyout>
+
+            </Button>
+        </Grid>
+
+        <!-- Fetching data progress ring & text -->
+        <Grid Grid.Row="1" ColumnSpacing="8" Visibility="Visible" VerticalAlignment="Top" x:Name="FetchingDataGrid">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <ProgressRing IsActive="True" Grid.Column="0" Height="16" Width="16" />
+            <TextBlock x:Uid="/Constructions/FetchingDataGrid_Text" TextWrapping="Wrap" VerticalAlignment="Center" Grid.Column="1" />
+        </Grid>
+
+        <!-- Fetching data error warning -->
+        <Grid Grid.Row="1" ColumnSpacing="8" Visibility="Collapsed" VerticalAlignment="Top" x:Name="FetchingDataGridError">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <FontIcon Grid.Column="0" FontFamily="{StaticResource SymbolThemeFontFamily}" Foreground="Red" Glyph="&#xE783;"/>
+            <TextBlock x:Uid="/Constructions/FetchingDataGridError_Text" TextWrapping="Wrap" VerticalAlignment="Center" Grid.Column="1" />
+        </Grid>
+
+        <!-- List view -->
+        <ListView Grid.Row="1"
+                  x:Name="ConstructionsListView"
+                  ItemClick="ListViewBase_OnItemClick"
+                  IsItemClickEnabled="True"
+                  Padding="0,0,56,16"
+                  Margin="0,0,-56,0"
+                  SelectionMode="Single">
+            <ListView.ItemTemplate>
+                <DataTemplate x:Key="ListViewTemplate" x:DataType="entities:Construction">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0"
+                              Grid.Row="0"
+                              Grid.RowSpan="2"
+                              Height="32"
+                              Width="32"
+                              Padding="9"
+                              Margin="6"
+                              Background="{ThemeResource PersonPictureEllipseFillThemeBrush}"
+                              CornerRadius="16">
+                            <Viewbox>
+                                <FontIcon Glyph="&#xE98F;" />
+                            </Viewbox>
+                        </Grid>
+                        <TextBlock Grid.Row="0" Grid.Column="1"
+                                   Text="{x:Bind Location}"
+                                   x:Phase="1"
+                                   Style="{ThemeResource BaseTextBlockStyle}"
+                                   Margin="12,6,0,0"/>
+                        <TextBlock Grid.Column="1"
+                                   Grid.Row="1"
+                                   Text="{x:Bind DateString}"
+                                   x:Phase="2"
+                                   Style="{ThemeResource BodyTextBlockStyle}"
+                                   Margin="12,0,0,6"/>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</Page>

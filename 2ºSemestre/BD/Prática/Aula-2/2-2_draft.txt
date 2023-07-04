@@ -1,0 +1,16 @@
+Prescrição(número, data de criação, data de levantamento)
+Médico(número, nome, especialidade)
+Paciente(número, nome, data de nascimento, endereço)
+Fármaco(fórmula)
+Nome comercial()
+Farmacêutica(número de registo, nome, endereço, telefone)
+Farmácia(nif, nome, endereço, telefone)
+
+*Relações*
+ Médico 1 - N Prescrição
+ Prescrição N - 1 Paciente
+ Prescrição N - M Fármaco
+ Fármaco 1 - N Nome comercial
+ Farmacêutica N - M Fármaco
+ Fármaco N - M Farmácia
+ Prescrição N - 1 Farmácia

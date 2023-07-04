@@ -1,0 +1,10 @@
+﻿{
+    "profiles": {
+      "APFT (Package)": {
+        "commandName": "MsixPackage"
+      },
+      "APFT (Unpackaged)": {
+        "commandName": "Project"
+      }
+    }
+}

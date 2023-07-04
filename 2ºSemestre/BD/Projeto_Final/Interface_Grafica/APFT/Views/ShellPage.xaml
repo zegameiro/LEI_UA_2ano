@@ -1,0 +1,91 @@
+﻿<Page
+    x:Class="APFT.Views.ShellPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:helpers="using:APFT.Helpers"
+    xmlns:behaviors="using:APFT.Behaviors"
+    xmlns:i="using:Microsoft.Xaml.Interactivity"
+    Loaded="OnLoaded">
+
+    <Grid>
+        <Grid x:Name="AppTitleBar"
+              Canvas.ZIndex="1"
+              Height="{Binding ElementName=NavigationViewControl, Path=CompactPaneLength}"
+              IsHitTestVisible="True"
+              VerticalAlignment="Top">
+            <Image Source="/Assets/WindowIcon.ico"
+                   HorizontalAlignment="Left"
+                   Width="16"
+                   Height="16" />
+            <TextBlock x:Name="AppTitleBarText"
+                       VerticalAlignment="Center"
+                       TextWrapping="NoWrap"
+                       Style="{StaticResource CaptionTextBlockStyle}"
+                       Margin="28,0,0,0"/>
+        </Grid>
+        <NavigationView
+            x:Name="NavigationViewControl"
+            Canvas.ZIndex="0"
+            IsBackButtonVisible="Visible"
+            IsBackEnabled="{x:Bind ViewModel.IsBackEnabled, Mode=OneWay}"
+            SelectedItem="{x:Bind ViewModel.Selected, Mode=OneWay}"
+            IsSettingsVisible="True"
+            ExpandedModeThresholdWidth="1280"
+            DisplayModeChanged="NavigationViewControl_DisplayModeChanged">
+            <NavigationView.MenuItems>
+                <NavigationViewItem x:Uid="/Shell/Home" helpers:NavigationHelper.NavigateTo="APFT.ViewModels.InícioViewModel">
+                    <NavigationViewItem.Icon>
+                        <FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xE80F;"/>
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+                <NavigationViewItem x:Uid="/Shell/Constructions" helpers:NavigationHelper.NavigateTo="APFT.ViewModels.ObrasViewModel">
+                    <NavigationViewItem.Icon>
+                        <FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xE98F;"/>
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+                <NavigationViewItem x:Uid="/Shell/Customers" helpers:NavigationHelper.NavigateTo="APFT.ViewModels.ClientesViewModel">
+                    <NavigationViewItem.Icon>
+                        <FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xE77B;"/>
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+                <NavigationViewItem x:Uid="/Shell/Employees" helpers:NavigationHelper.NavigateTo="APFT.ViewModels.EmpregadosViewModel">
+                    <NavigationViewItem.Icon>
+                        <FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xE822;"/>
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+                <NavigationViewItem x:Uid="/Shell/Suppliers" helpers:NavigationHelper.NavigateTo="APFT.ViewModels.FornecedoresViewModel">
+                    <NavigationViewItem.Icon>
+                        <FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xE719;"/>
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+                <NavigationViewItem x:Uid="/Shell/Orders" helpers:NavigationHelper.NavigateTo="APFT.ViewModels.EncomendasViewModel">
+                    <NavigationViewItem.Icon>
+                        <FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xE7B8;"/>
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+            </NavigationView.MenuItems>
+
+            <NavigationView.FooterMenuItems>
+                <NavigationViewItem x:Uid="/Shell/DatabaseStatus" helpers:NavigationHelper.NavigateTo="APFT.ViewModels.DatabaseStatusViewModel">
+                    <NavigationViewItem.Icon>
+                        <FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xF0B9;"/>
+                    </NavigationViewItem.Icon>
+                    <NavigationViewItem.InfoBadge>
+                        <InfoBadge x:Name="cnInfoBadge_nv"
+                                   Style="{StaticResource AttentionDotInfoBadgeStyle}"
+                                   Background="Red"
+                                   Height="6"
+                                   Width="6"
+                                   Margin="4"/>
+                    </NavigationViewItem.InfoBadge>
+                </NavigationViewItem>
+            </NavigationView.FooterMenuItems>
+
+            <Grid Margin="{StaticResource NavigationViewPageContentMargin}">
+                <Frame x:Name="NavigationFrame" />
+            </Grid>
+        </NavigationView>
+    </Grid>
+</Page>

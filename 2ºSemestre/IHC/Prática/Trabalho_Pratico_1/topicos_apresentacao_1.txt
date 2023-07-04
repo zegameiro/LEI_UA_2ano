@@ -1,0 +1,28 @@
+1 - O que é a transdev e qual o seu objetivo e do site? 
+
+A Transdev SA é uma operadora de transportes públicos francesa caracterizada por desenvolver a mobilidade ,
+sendo uma das maiores no mundo. É um dos líderes mundiais no transporte colectivo de passageiros em autocarros
+e é reconhecida como líder mundial em serviços de metro/eléctrico.
+
+O propósito do site tem como principal objetivo consultar horários de autocarros, dependendo da região a que o utilizador queira saber, 
+alugar autocarros para viagens, consultar informações sobre a própria empresa Transdev
+
+2 - Porque é que nós escolhemos a Transdev
+
+Nós escolhemos este site numa aula de IHC, em que estávamos à procura de ideias para este trabalho prático tal como
+todos vocês secalhar fizeram e professor sugeriu-nos procurar sites de transportes públicos. Por causa disto surgiu-nos
+a transdev pois esta é uma empresa muito conhecida e maior parte de nós já usufruiu dos serviços dela. Ao entrarmos no site da Transdev
+começámos a notar nalguns erros visuais e o site em si estava um bocado outdated e por isso decidimos explorar mais o website e, consequentemente 
+escolhemos o site para este primeiro trabalho prático
+
+3 - O que é que é uma Cognitive Walkthrough?
+
+Este método é uma técnica utilizada para avaliar a funcionalidade de um sistema do ponto de vista
+de um utilizador novo, ou seja, um site que se consegue adaptar a todos os tipos de utilizadores.
+A abordagem tradicional da CW envolve os membros de uma equipa, ao realizar uma task proposta estes têm responder a 4 questões à medida que avançam nos passos
+que são necessários realizar. No entanto para este trabalho nós utilizámos uma outra variante da CW, que é a Streamlined Cognitive Walkthrough
+
+4 - O que é uma Streamlined Cognitive Walkthrough?
+
+Esta variante da CW é uma técnica mais simples para avaliar a funcionalidade de um sistema, pois neste em vez de a cada ação que o utilizador que estiver a avaliar 
+o sistema tem que responder apenas a 2 questões que são as seguintes (nos slides).

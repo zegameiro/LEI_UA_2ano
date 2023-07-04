@@ -1,0 +1,64 @@
+-- Exercise 4.1.3
+
+DROP TABLE IF EXISTS ORDER_MANAGEMENT.REL_PRODUCT_PACKAGE;
+DROP TABLE IF EXISTS ORDER_MANAGEMENT.REL_PACKAGE_SUPPLIER;
+DROP TABLE IF EXISTS ORDER_MANAGEMENT.PACKAGE;
+DROP TABLE IF EXISTS ORDER_MANAGEMENT.SUPPLIER;
+DROP TABLE IF EXISTS ORDER_MANAGEMENT.PRODUCT;
+DROP TABLE IF EXISTS ORDER_MANAGEMENT.COMPANY;
+DROP SCHEMA IF EXISTS ORDER_MANAGEMENT;
+GO
+
+CREATE SCHEMA ORDER_MANAGEMENT;
+GO
+
+CREATE TABLE ORDER_MANAGEMENT.COMPANY (
+    nif                     INT             NOT NULL    PRIMARY KEY
+
+    CHECK (nif > 100000000)
+);
+
+CREATE TABLE ORDER_MANAGEMENT.PRODUCT (
+    code                    INT             NOT NULL    PRIMARY KEY,
+    price                   INT             NOT NULL,
+    iva_rate                INT             NOT NULL    DEFAULT 23,
+    units_storage           INT             NOT NULL    DEFAULT 0,
+    COMPANY_nif                     INT             NOT NULL,
+
+    FOREIGN KEY (COMPANY_nif) REFERENCES ORDER_MANAGEMENT.COMPANY(nif) ON UPDATE CASCADE,
+    CHECK (price >= 0), -- It can be a gift, hence why it can cost 0€
+    CHECK (iva_rate >= 0),
+);
+
+CREATE TABLE ORDER_MANAGEMENT.PACKAGE (
+    number                  INT             NOT NULL    PRIMARY KEY,
+    PACKAGE_date            DATE            NOT NULL,
+    nif                     INT             NOT NULL
+);
+
+CREATE TABLE ORDER_MANAGEMENT.REL_PRODUCT_PACKAGE (
+    PRODUCT_code            INT             NOT NULL    REFERENCES ORDER_MANAGEMENT.PRODUCT(code) ON UPDATE CASCADE,
+    PACKAGE_number          INT             NOT NULL    REFERENCES ORDER_MANAGEMENT.PACKAGE(number) ON UPDATE CASCADE,
+
+    PRIMARY KEY (PRODUCT_code, PACKAGE_number)
+);
+
+CREATE TABLE ORDER_MANAGEMENT.SUPPLIER (
+    nif                     INT             NOT NULL    PRIMARY KEY,
+    name                    VARCHAR(100),
+    fax                     INT,
+    code_type               INT             NOT NULL,
+    payment_conditions      INT             NOT NULL    DEFAULT 30,
+
+    CHECK (payment_conditions >= 0),
+    CHECK (nif > 100000000)
+);
+
+CREATE TABLE ORDER_MANAGEMENT.REL_PACKAGE_SUPPLIER (
+    PACKAGE_number        INT             NOT NULL    REFERENCES ORDER_MANAGEMENT.PACKAGE(number) ON UPDATE CASCADE,
+    SUPPLIER_nif          INT             NOT NULL    REFERENCES ORDER_MANAGEMENT.SUPPLIER(nif) ON UPDATE CASCADE,
+
+    PRIMARY KEY (PACKAGE_number, SUPPLIER_nif)
+);
+
+ALTER TABLE ORDER_MANAGEMENT.PACKAGE ADD CONSTRAINT nif FOREIGN KEY (nif) REFERENCES ORDER_MANAGEMENT.SUPPLIER(nif)

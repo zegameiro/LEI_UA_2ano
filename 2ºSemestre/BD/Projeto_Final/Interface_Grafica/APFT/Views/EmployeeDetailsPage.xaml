@@ -1,0 +1,312 @@
+﻿<Page
+    x:Class="APFT.Views.EmployeeDetailsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:entities="using:APFT.Entities"
+    mc:Ignorable="d">
+
+	<Grid x:Name="ContentArea" VerticalAlignment="Top" RowSpacing="32">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition/>
+		</Grid.RowDefinitions>
+
+		<!-- Header -->
+		<Grid Grid.Row="0" ColumnSpacing="8" Margin="0,10,0,-8">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition />
+				<ColumnDefinition Width="Auto" />
+				<ColumnDefinition Width="Auto" />
+			</Grid.ColumnDefinitions>
+
+			<!-- Header text -->
+			<TextBlock Grid.Column="0"
+                       x:Uid="/EmployeeDetails/Header"
+                       Style="{ThemeResource TitleTextBlockStyle}" />
+
+			<!-- Delete button -->
+			<Button Grid.Column="1"
+                    x:Name="DeleteButton"
+                    Click="DeleteButton_OnClick">
+				<Viewbox Height="16" Width="16">
+					<FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xE74D;"/>
+				</Viewbox>
+				<ToolTipService.ToolTip>
+					<ToolTip x:Uid="/EmployeeDetails/DeleteButton"/>
+				</ToolTipService.ToolTip>
+			</Button>
+
+			<!-- Edit info button -->
+			<Button Grid.Column="2"
+                    x:Name="EditInfoButton"
+                    Click="EditInfoButton_OnClick"
+                    Style="{StaticResource AccentButtonStyle}">
+				<Grid>
+					<Viewbox Height="16" Width="16" x:Name="EditInfoViewBox">
+						<Grid>
+							<FontIcon x:Name="EditInfoIcon"
+                                      FontFamily="{StaticResource SymbolThemeFontFamily}"
+                                      Glyph="&#xE70F;"
+                                      Opacity="1"/>
+							<FontIcon x:Name="EditInfoIconCheckmark"
+                                      FontFamily="{StaticResource SymbolThemeFontFamily}"
+                                      Glyph="&#xE73E;"
+                                      Opacity="0"/>
+						</Grid>
+					</Viewbox>
+					<ProgressRing IsActive="True"
+                                  Height="16"
+                                  Width="16"
+                                  Foreground="White"
+                                  Opacity="0"
+                                  x:Name="EditInfoProgressRing"/>
+				</Grid>
+
+				<ToolTipService.ToolTip>
+					<ToolTip x:Uid="/EmployeeDetails/EditInfoButton"/>
+				</ToolTipService.ToolTip>
+			</Button>
+		</Grid>
+
+		<!-- Content -->
+		<ScrollViewer Grid.Row="1" Padding="0,0,56,0" Margin="0,0,-56,0">
+			<Grid RowSpacing="32" Padding="0,0,0,16">
+				<Grid.RowDefinitions>
+					<RowDefinition/>
+					<RowDefinition/>
+				</Grid.RowDefinitions>
+
+				<!-- Employee info area -->
+				<Grid Grid.Row="0" RowSpacing="16">
+					<Grid.RowDefinitions>
+						<RowDefinition />
+						<RowDefinition />
+						<RowDefinition />
+						<RowDefinition />
+						<RowDefinition />
+						<RowDefinition />
+					</Grid.RowDefinitions>
+
+					<!-- NIF -->
+					<TextBox Grid.Row="0" Grid.Column="0" Text="{x:Bind Nif, Mode=TwoWay}" x:Uid="/EmployeeDetails/NifTextBox" />
+
+					<!-- First & last names -->
+					<Grid Grid.Row="1" ColumnSpacing="16">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="*"/>
+							<ColumnDefinition Width="*"/>
+						</Grid.ColumnDefinitions>
+
+						<TextBox Grid.Column="0" Text="{x:Bind FirstName, Mode=TwoWay}" x:Uid="/EmployeeDetails/FirstNameTextBox" />
+						<TextBox Grid.Column="1" Text="{x:Bind LastName, Mode=TwoWay}" x:Uid="/EmployeeDetails/LastNameTextBox" />
+					</Grid>
+
+					<!-- E-mail & phone number -->
+					<Grid Grid.Row="2" ColumnSpacing="16">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="*"/>
+							<ColumnDefinition Width="*"/>
+						</Grid.ColumnDefinitions>
+
+						<TextBox Grid.Column="0" Text="{x:Bind Email, Mode=TwoWay}" x:Uid="/EmployeeDetails/EmailTextBox" />
+						<TextBox Grid.Column="1" Text="{x:Bind Phone, Mode=TwoWay}" x:Uid="/EmployeeDetails/PhoneTextBox" />
+					</Grid>
+
+					<!-- Address -->
+					<TextBox Grid.Row="3" Grid.Column="0" Text="{x:Bind Address, Mode=TwoWay}" x:Uid="/EmployeeDetails/AddressTextBox" />
+
+                    <!-- Gender & birth date -->
+                    <Grid Grid.Row="4" ColumnSpacing="16" SizeChanged="GenderAndBirthGrid_OnSizeChanged">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*" x:Name="BirthColumn"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <ComboBox Grid.Column="0"
+                                  x:Name="GenderComboBox"
+                                  x:Uid="/EmployeeDetails/GenderComboBox"
+                                  SelectionChanged="GenderComboBox_OnSelectionChanged"
+                                  ItemsSource="{x:Bind GenderDictionary.Values}" />
+						<CalendarDatePicker Grid.Column="1"
+											x:Uid="/EmployeeDetails/CalendarDatePicker"
+                                            x:Name="CalendarDatePicker"
+                                            DateChanged="CalendarDatePicker_OnDateChanged"/>
+						<TextBox Grid.Column="2"
+								 x:Name="SalaryTextBox"
+                                 Text="{x:Bind Salary, Mode=OneWay}"
+								 x:Uid="/EmployeeDetails/SalaryTextBox"/>
+                    </Grid>
+                </Grid>
+
+				<!-- Employee's constructions -->
+				<Grid Grid.Row="1" RowSpacing="8">
+					<Grid.RowDefinitions>
+						<RowDefinition/>
+						<RowDefinition/>
+					</Grid.RowDefinitions>
+
+					<!-- Header (i.e., a subtitle) -->
+					<Grid Grid.Row="0">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition/>
+							<ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Grid.Column="0" x:Uid="/EmployeeDetails/ConstructionsSubheader"
+                                   x:Name="ConstructionsSubtitle"
+                                   Visibility="Collapsed"
+								   VerticalAlignment="Center"
+                                   Style="{ThemeResource SubtitleTextBlockStyle}" />
+
+                        <!-- Add construction button -->
+                        <Button Grid.Column="1" VerticalAlignment="Center">
+                            <Viewbox Height="16" Width="16">
+                                <FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xE710;"/>
+                            </Viewbox>
+                            <ToolTipService.ToolTip>
+                                <ToolTip x:Uid="/EmployeeDetails/AddHoursNewButtonFlyout" />
+                            </ToolTipService.ToolTip>
+                            <Button.Flyout>
+                                <Flyout ShouldConstrainToRootBounds="False">
+                                    <StackPanel Spacing="16">
+										<TextBox x:Name="AddHoursNewTextBox" x:Uid="/EmployeeDetails/AddHoursNewTextBox" PlaceholderText="0"/>
+                                        <CalendarDatePicker x:Name="AddHoursNewCalendarPicker" x:Uid="/EmployeeDetails/AddHoursCalendarPicker" Width="200" />
+                                        <NumberBox x:Uid="/EmployeeDetails/AddHoursNumberBox"
+                                                   x:Name="AddHoursNumberBox"
+                                                   SpinButtonPlacementMode="Inline"
+                                                   SmallChange="1"
+                                                   LargeChange="1"
+                                                   Value="0"
+                                                   Minimum="0"
+                                                   Maximum="23"/>
+                                        <Button x:Uid="/EmployeeDetails/AddHoursButton" Click="AddHoursNewButton_OnClick" Style="{StaticResource AccentButtonStyle}" />
+                                    </StackPanel>
+                                </Flyout>
+                            </Button.Flyout>
+                        </Button>
+                    </Grid>
+
+                    <!-- Constructions list -->
+					<ListView Grid.Row="1"
+                              x:Name="ConstructionsGridView"
+                              IsItemClickEnabled="True"
+                              ItemClick="ConstructionsGridView_OnItemClick"
+                              SelectionMode="None">
+
+						<!-- Card style -->
+						<ListView.ItemContainerStyle>
+							<Style TargetType="ListViewItem">
+								<Setter Property="Template">
+									<Setter.Value>
+										<ControlTemplate TargetType="ListViewItem">
+											<Grid Margin="0, 0, 0 4">
+												<VisualStateManager.VisualStateGroups>
+													<VisualStateGroup x:Name="CommonStates">
+														<VisualState x:Name="Normal" />
+
+                                                        <!-- Hover effect -->
+                                                        <VisualState x:Name="PointerOver">
+                                                            <VisualState.Setters>
+                                                                <Setter Target="CardBorder.Background" Value="{ThemeResource CardBackgroundFillColorSecondaryBrush}" />
+                                                            </VisualState.Setters>
+                                                        </VisualState>
+
+                                                        <!-- Pressed effect -->
+                                                        <VisualState x:Name="Pressed">
+                                                            <VisualState.Setters>
+                                                                <Setter Target="CardBorder.Background" Value="{ThemeResource CardBackgroundFillColorSecondaryBrush}" />
+                                                                <Setter Target="CardBorder.Opacity" Value="0.7" />
+                                                            </VisualState.Setters>
+                                                        </VisualState>
+													</VisualStateGroup>
+												</VisualStateManager.VisualStateGroups>
+
+												<!-- Background -->
+												<Border x:Name="CardBorder"
+                                                        CornerRadius="6"
+                                                        Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"/>
+
+												<!-- Border -->
+												<Border BorderThickness="1"
+                                                        BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+                                                        CornerRadius="6"
+                                                        Padding="12"/>
+
+												<!-- Content template (see ListView.ItemTemplate) -->
+												<ContentPresenter Content="{TemplateBinding Content}"
+                                                                  ContentTemplate="{TemplateBinding ContentTemplate}" />
+											</Grid>
+										</ControlTemplate>
+									</Setter.Value>
+								</Setter>
+							</Style>
+						</ListView.ItemContainerStyle>
+
+						<!-- List item template -->
+						<ListView.ItemTemplate>
+							<DataTemplate x:DataType="entities:Construction">
+								<Grid ColumnSpacing="8" Padding="12, 12, 8, 12">
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="*"/>
+										<ColumnDefinition Width="Auto"/>
+										<ColumnDefinition Width="Auto"/>
+									</Grid.ColumnDefinitions>
+									<Grid.RowDefinitions>
+										<RowDefinition/>
+										<RowDefinition/>
+									</Grid.RowDefinitions>
+
+									<!-- Location -->
+									<TextBlock Grid.Column="0"
+                                               Grid.Row="0"
+                                               Text="{x:Bind Location}"
+                                               x:Phase="1"
+                                               Style="{StaticResource BodyStrongTextBlockStyle}"/>
+
+									<!-- Dates -->
+									<TextBlock Grid.Column="0"
+                                               Grid.Row="1">
+										Total hours:
+									</TextBlock>
+
+									<!-- Add date -->
+									<Button Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" VerticalAlignment="Center" Content="Add hours">
+                                        <Button.Flyout>
+                                            <Flyout ShouldConstrainToRootBounds="False">
+                                                <StackPanel Spacing="16">
+													<TextBlock Text="{x:Bind Id, Mode=OneWay}"/>
+                                                    <CalendarDatePicker x:Uid="/EmployeeDetails/AddHoursCalendarPicker" Width="200" />
+													<NumberBox x:Uid="/EmployeeDetails/AddHoursNumberBox"
+                                                               SpinButtonPlacementMode="Inline"
+                                                               SmallChange="1"
+                                                               LargeChange="1"
+                                                               Value="0"
+                                                               Minimum="0"
+                                                               Maximum="23"/>
+                                                    <Button x:Uid="/EmployeeDetails/AddHoursButton" Click="AddHoursExistingButton_OnClick" Style="{StaticResource AccentButtonStyle}" />
+                                                </StackPanel>
+                                            </Flyout>
+                                        </Button.Flyout>
+                                    </Button>
+
+									<!-- Chevron -->
+									<Viewbox Grid.Column="2"
+                                             Grid.Row="0"
+                                             Grid.RowSpan="2"
+                                             Height="16"
+                                             Width="16">
+										<FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}"
+                                                  Glyph="&#xE76C;"/>
+									</Viewbox>
+								</Grid>
+							</DataTemplate>
+						</ListView.ItemTemplate>
+					</ListView>
+				</Grid>
+			</Grid>
+		</ScrollViewer>
+	</Grid>
+</Page>
