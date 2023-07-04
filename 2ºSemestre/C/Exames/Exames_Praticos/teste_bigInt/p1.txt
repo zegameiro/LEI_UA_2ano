@@ -1,4 +1,0 @@
-# p1.txt
-show 10000000000000000000000000000000000; # escreve na consola um número muito grande
-716257652762576157162 -> c; # guarda um número muito grande na variável c
-show c; #escreve na consola o número armazenado na variável c                        
