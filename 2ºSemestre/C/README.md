@@ -1,5 +1,6 @@
 # Compiladores
 
+
 ## Conteúdos
 
 1. Introdução às linguagens e aos compiladores
@@ -12,11 +13,12 @@
     - Autómatos Finitos
 7. Análise Sintática
     - Gramáticas independentes de contexto
-    - _Push-Down Automata_ 
+    - Push-Down Automata
+
 
 ## Informações
 
-Encontram-se disponíveis os slides lecionados nas aulas teóricas, os guiões práticas e resoluções de alguns exercícios dos mesmos, que poderão estar incompletos ou errados, o projeto final da cadeira e alguns enunciados de exames quer práticos quer teóricos.
+Encontram-se disponíveis os slides lecionados nas aulas teóricas, os guiões práticas e resoluções de alguns exercícios dos mesmos, que poderão estar incompletos ou errados e o projeto final da cadeira.
 
 ## Projeto Final
 

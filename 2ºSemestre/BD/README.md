@@ -1,5 +1,6 @@
 # Bases de Dados
 
+
 ## Conteúdos
 1. Introdução aos Sistemas de Base de Dados
 2. Desenho Conceptual
@@ -23,9 +24,10 @@
 10. Transações, Controlo de Concorrência e Recuperação de Falhas
 11. Segurança em Bases de Dados
 
+
 ## Informações
 
-Estão disponíveis os slides lecionados nas aulas teóricas, os guiões práticos das aulas práticas bem como as suas resoluções, alguns testes teóricos e o projeto final da cadeira.
+Estão disponíveis os slides lecionados nas aulas teóricas, os guiões práticos das aulas práticas bem como as suas resoluções e o projeto final da cadeira.
 
 <br />
 

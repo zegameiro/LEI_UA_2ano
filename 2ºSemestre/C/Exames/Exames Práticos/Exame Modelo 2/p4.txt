@@ -1,5 +1,0 @@
--- p4.txt
-
-display reduce 6/12;
-display reduce read "fraction";
-

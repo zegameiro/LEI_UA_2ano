@@ -1,4 +1,0 @@
-#!/bin/bash
-
-java -cp FracLangMain.jar:$CLASSPATH FracLangMain $*
-

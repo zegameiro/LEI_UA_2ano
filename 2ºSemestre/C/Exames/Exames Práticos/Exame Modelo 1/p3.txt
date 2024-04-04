@@ -1,3 +1,0 @@
-n : input("Nome: ")
-a : input("Apelido: ")
-print n+" "+a

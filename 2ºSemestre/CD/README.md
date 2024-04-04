@@ -43,7 +43,7 @@
 
 ## Informações 
 
-Estão disponíveis os slides lecionados nas aulas teóricas, os guiões práticos e as suas respetivas resoluções, o projeto final da cadeira e algumas questões de exames teóricos anteriores.
+Estão disponíveis os slides lecionados nas aulas teóricas, os guiões práticos e as suas respetivas resoluções e o projeto final da cadeira.
 
 ## Guiões Práticos
 

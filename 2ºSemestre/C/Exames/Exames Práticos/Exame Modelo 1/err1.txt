@@ -1,1 +1,0 @@
-print c // erro semântico

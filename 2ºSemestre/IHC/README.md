@@ -32,7 +32,7 @@
 
 ## Informações
 
-Encontram-se disponíveis os slides lecionados nas aulas teóricas, os 2 trabalhos práticos realizados e exemplos de exames teóricos.
+Encontram-se disponíveis os slides lecionados nas aulas teóricas e os 2 trabalhos práticos realizados.
 
 <br />
 
